@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Repository.Entities;
 using Services.Interfaces;
 using Services.Model;
 
@@ -9,16 +10,16 @@ namespace UI.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [System.Web.Http.Cors.EnableCors(origins: "*", headers: "*", methods: "*")]
-    public class UserController : ControllerBase
+    public class YearEventController : ControllerBase
     {
-        IUserService _service;
-        public UserController(IUserService service)
+        IYearEventService _service;
+        public YearEventController(IYearEventService service)
         {
             _service = service;
         }
         // GET: api/<UserController>
         [HttpGet]
-        public IEnumerable<UserModel> Get()
+        public IEnumerable<YearEventModel> Get()
         {
             var result = _service.GetAll();
             return result;
@@ -34,9 +35,9 @@ namespace UI.Controllers
         // POST api/<UserController>
         [HttpPost]
         public void Post([FromBody] string value)
-        {         
-            UserModel usModel = new UserModel();
-            _service.Add(usModel);
+        {
+            YearEventModel yearEvent = new YearEventModel();
+            _service.Add(yearEvent);
         }
 
         // PUT api/<UserController>/5

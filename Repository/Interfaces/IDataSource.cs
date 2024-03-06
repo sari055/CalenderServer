@@ -10,12 +10,15 @@ namespace Repository.Interfaces
     public interface IDataSource 
     {
         int SaveChanges();
-        public DbSet <Descendant> Descendant { get; set; }
-        public DbSet <DescendantImage> DescendantImage { get; set; }
-        public DbSet <Image> Image { get; set; }
-        public DbSet <SpecialDate> SpecialDate { get; set; }
-        public DbSet <SpecialEvent> SpecialEvent { get; set; }
+        public DbSet <CalenderYear> CalenderYear { get; set; }
+        public DbSet <CalenderUser> CalenderUser { get; set; }
+        public DbSet <Level> Level { get; set; }
+        public DbSet <Calender> Calender { get; set; }
         public DbSet <User> User { get; set; }
+        public DbSet <YearEvent> YearEvent { get; set; }
+        public DbSet <UserType> UserType { get; set; }
+        public DbSet <Event> Event { get; set; }
+      
          
 
     }

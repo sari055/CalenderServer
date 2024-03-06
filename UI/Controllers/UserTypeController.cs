@@ -9,16 +9,16 @@ namespace UI.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [System.Web.Http.Cors.EnableCors(origins: "*", headers: "*", methods: "*")]
-    public class UserController : ControllerBase
+    public class UserTypeController : ControllerBase
     {
-        IUserService _service;
-        public UserController(IUserService service)
+        IUserTypeService _service;
+        public UserTypeController(IUserTypeService service)
         {
             _service = service;
         }
         // GET: api/<UserController>
         [HttpGet]
-        public IEnumerable<UserModel> Get()
+        public IEnumerable<UserTypeModel> Get()
         {
             var result = _service.GetAll();
             return result;
@@ -35,8 +35,8 @@ namespace UI.Controllers
         [HttpPost]
         public void Post([FromBody] string value)
         {         
-            UserModel usModel = new UserModel();
-            _service.Add(usModel);
+            UserTypeModel userTypeModel = new UserTypeModel();
+            _service.Add(userTypeModel);
         }
 
         // PUT api/<UserController>/5

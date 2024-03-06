@@ -33,7 +33,8 @@ namespace Repository
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
-            optionsBuilder.UseSqlServer("Data Source=sqlsrv;Initial Catalog=#calender_project;Integrated Security=True;TrustServerCertificate=True");
+          //  optionsBuilder.UseSqlServer("Data Source=sqlsrv;Initial Catalog=C:\\USERS\\USER\\DOCUMENTS\\#CALENDAR.MDF;Integrated Security=True;TrustServerCertificate=True");
+            optionsBuilder.UseSqlServer("Data Source=(LocalDB)\\MSSQLLocalDB;Initial Catalog=CALENDAR_PROJECT_T&S;Integrated Security=True;TrustServerCertificate=True");
 
             base.OnConfiguring(optionsBuilder);
         }
@@ -53,12 +54,14 @@ namespace Repository
         {
             return base.SaveChanges();
         }
-        public Microsoft.EntityFrameworkCore.DbSet<Descendant> Descendant { get; set; }
-        public  Microsoft.EntityFrameworkCore.DbSet<DescendantImage> DescendantImage { get; set; }
-        public  Microsoft.EntityFrameworkCore.DbSet<Image> Image { get; set; }
-        public  Microsoft.EntityFrameworkCore.DbSet<SpecialDate> SpecialDate { get; set; }
-        public  Microsoft.EntityFrameworkCore.DbSet<SpecialEvent> SpecialEvent { get; set; }
+        public  Microsoft.EntityFrameworkCore.DbSet<CalenderYear> CalenderYear { get; set; }
+        public  Microsoft.EntityFrameworkCore.DbSet<CalenderUser> CalenderUser { get; set; }
+        public  Microsoft.EntityFrameworkCore.DbSet<Level> Level { get; set; }
+        public  Microsoft.EntityFrameworkCore.DbSet<Calender> Calender { get; set; }
         public Microsoft.EntityFrameworkCore.DbSet<User> User { get; set; }
+        public Microsoft.EntityFrameworkCore.DbSet<YearEvent> YearEvent { get; set; }
+        public Microsoft.EntityFrameworkCore.DbSet<UserType> UserType { get; set; }
+        public Microsoft.EntityFrameworkCore.DbSet<Event> Event { get; set; }
 
     }
     public class DateOnlyConverter : ValueConverter<DateOnly, DateTime>

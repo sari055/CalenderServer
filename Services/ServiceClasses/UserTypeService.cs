@@ -12,21 +12,25 @@ using System.Threading.Tasks;
 
 namespace Services.ServiceClasses
 {
-    public class UserService : IUserService
+    public class UserTypeService : IUserTypeService
     {
-        private readonly IUserRepository rep;
+        private readonly IUserTypeRepository rep;
         private readonly IMapper mapper;
 
-        public UserService(IUserRepository _rep, IMapper _mapper)
+        public UserTypeService(IUserTypeRepository _rep, IMapper _mapper)
         {
             rep = _rep;
             mapper = _mapper;
         }
-      
+        //AutoMapper.MapperConfiguration config =
+        //    new AutoMapper.MapperConfiguration(
+        //       conf => conf.CreateMap<User, UserModel>()
+        //       .ReverseMap()
+        //       );
 
-        public UserModel Add(UserModel model)
+        public UserTypeModel Add(UserTypeModel model)
         {
-            return mapper.Map<UserModel>(rep.Add(mapper.Map<User>(model)));
+            return mapper.Map<UserTypeModel>(rep.Add(mapper.Map<UserType>(model)));
         }
 
         public void Delete(int key)
@@ -34,13 +38,13 @@ namespace Services.ServiceClasses
             throw new NotImplementedException();
         }
 
-        public List<UserModel> GetAll()
+        public List<UserTypeModel> GetAll()
         {
-            List<User> list = rep.GetAll();
-            List<UserModel> listToReturn = new List<UserModel>();
+            List<UserType> list = rep.GetAll();
+            List<UserTypeModel> listToReturn = new List<UserTypeModel>();
             foreach (var item in list)
             {
-                listToReturn.Add(mapper.Map<UserModel>(item));
+                listToReturn.Add(mapper.Map<UserTypeModel>(item));
             }
             return listToReturn;
         }
@@ -51,17 +55,17 @@ namespace Services.ServiceClasses
         //        yield return mapper.Map<UserModel>(item);
         //    }
         //}
-        public UserModel GetById(int key)
+        public UserTypeModel GetById(int key)
         {
             throw new NotImplementedException();
         }
 
-        public List<UserModel> Search(int id = 0, string searchstring = "")
+        public List<UserTypeModel> Search(int id = 0, string searchstring = "")
         {
             throw new NotImplementedException();
         }
 
-        public void Update(UserModel model)
+        public void Update(UserTypeModel model)
         {
             throw new NotImplementedException();
         }

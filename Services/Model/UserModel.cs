@@ -9,20 +9,28 @@ namespace Services.Model
 {
     public class UserModel
     {
-       
-        public int UserId { get; set; }
-        public string UserPassword { get; set; }
+
+        public int Id { get; set; }
+        public int UserTZ { get; set; }
+        public int UserSpouseID { get; set; }
+        public int UserFatherID { get; set; }
+        public int UserMotherID { get; set; }
         public string UserName { get; set; }
         public string UserPhoneNumber { get; set; }
         public string UserEmail { get; set; }
+        public string UserPassword { get; set; }
 
-        public UserModel(int userId, string userPassword, string userName, string userPhoneNumber, string userEmail)
+        public UserModel(int id,int userTZ,int userSpouseID,int userFatherID,int userMotherID,string userName, string userPhoneNumber, string userEmail, string userPassword)
         {
-            UserId = userId;
-            UserPassword = userPassword;
+            Id = id;
+            UserTZ=userTZ;
+            UserSpouseID=userSpouseID;
+            UserFatherID=userFatherID;
+            UserMotherID=userMotherID;
             UserName = userName;
             UserPhoneNumber = userPhoneNumber;
             UserEmail = userEmail;
+            UserPassword = userPassword;
         }
 
         public UserModel()

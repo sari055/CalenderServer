@@ -8,16 +8,16 @@ using System.Threading.Tasks;
 
 namespace Repository.Repositories
 {
-    public class UserRepository : IUserRepository
+    public class LevelRepository : ILevelRepository
     {
         IDataSource dataSource;
-        public UserRepository(IDataSource ds)
+        public LevelRepository(IDataSource ds)
         {
             dataSource = ds;
         }
-        public User Add(User model)
+        public Level Add(Level model)
         {
-            dataSource.User.Add(model);
+           dataSource.Level.Add(model);
             dataSource.SaveChanges();
             return model;
         }
@@ -26,22 +26,23 @@ namespace Repository.Repositories
         {
             throw new NotImplementedException();
         }
-        public List<User> GetAll()
+
+        public List<Level> GetAll()
         {
-            return dataSource.User.ToList();//may be do id deep copy
+            return dataSource.Level.ToList();//may be do id deep copy
         }
 
-        public User GetById(int key)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<User> Search(int id = 0, string searchstring = "")
+        public Level GetById(int key)
         {
             throw new NotImplementedException();
         }
 
-        public void Update(User model)
+        public List<Level> Search(int id = 0, string searchstring = "")
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Level model)
         {
             throw new NotImplementedException();
         }

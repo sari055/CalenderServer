@@ -9,16 +9,16 @@ namespace UI.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [System.Web.Http.Cors.EnableCors(origins: "*", headers: "*", methods: "*")]
-    public class UserController : ControllerBase
+    public class LevelController : ControllerBase
     {
-        IUserService _service;
-        public UserController(IUserService service)
+        ILevelService _service;
+        public LevelController(ILevelService service)
         {
             _service = service;
         }
         // GET: api/<UserController>
         [HttpGet]
-        public IEnumerable<UserModel> Get()
+        public IEnumerable<LevelModel> Get()
         {
             var result = _service.GetAll();
             return result;
@@ -35,8 +35,8 @@ namespace UI.Controllers
         [HttpPost]
         public void Post([FromBody] string value)
         {         
-            UserModel usModel = new UserModel();
-            _service.Add(usModel);
+            LevelModel levelModel = new LevelModel();
+            _service.Add(levelModel);
         }
 
         // PUT api/<UserController>/5

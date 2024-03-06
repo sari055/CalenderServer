@@ -8,16 +8,16 @@ using System.Threading.Tasks;
 
 namespace Repository.Repositories
 {
-    public class UserRepository : IUserRepository
+    public class CalenderRepository : ICalenderRepository
     {
         IDataSource dataSource;
-        public UserRepository(IDataSource ds)
+        public CalenderRepository(IDataSource ds)
         {
             dataSource = ds;
-        }
-        public User Add(User model)
+        }    
+        public Calender Add(Calender model)
         {
-            dataSource.User.Add(model);
+            dataSource.Calender.Add(model);
             dataSource.SaveChanges();
             return model;
         }
@@ -26,22 +26,23 @@ namespace Repository.Repositories
         {
             throw new NotImplementedException();
         }
-        public List<User> GetAll()
+
+        public List<Calender> GetAll()
         {
-            return dataSource.User.ToList();//may be do id deep copy
+            return dataSource.Calender.ToList();//may be do id deep copy
         }
 
-        public User GetById(int key)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<User> Search(int id = 0, string searchstring = "")
+        public Calender GetById(int key)
         {
             throw new NotImplementedException();
         }
 
-        public void Update(User model)
+        public List<Calender> Search(int id = 0, string searchstring = "")
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Calender model)
         {
             throw new NotImplementedException();
         }

@@ -22,7 +22,6 @@ namespace UI
             builder.Services.AddSwaggerGen();
 
             // Add services to the container.
-            builder.Services.AddScoped<IDescendantService, DescendantService>();
             //builder.Services.AddScoped<IDescendantImageService, DescendantImageService>();
             //builder.Services.AddScoped<IImageService, ImageService>();
             //builder.Services.AddScoped<ISpecialDateService, SpecialDateService>();
@@ -36,7 +35,6 @@ namespace UI
             builder.Services.AddRepoDependencies();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
-           builder.Services.AddTransient< IDescendantRepository,DescendantRepository>();
 
             var app = builder.Build();
 
